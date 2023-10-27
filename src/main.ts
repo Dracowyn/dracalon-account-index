@@ -12,7 +12,7 @@ import './assets/css-vars.scss'
 import i18n from "./locales/i18n";
 
 import VueKeycloakJs from '@dsb-norge/vue-keycloak-js'
-import Keycloak from "keycloak-js";
+// import Keycloak from "keycloak-js";
 
 const app = createApp(App)
 
@@ -32,11 +32,10 @@ app.use(VueKeycloakJs, {
     //     clientId: 'account-index',
     //     realm: 'example'
     // },
-    onReady (keycloak: Keycloak) {
-        // app.mount('#app')
-    }
+
+    // onReady (keycloak: Keycloak) {
+    //     // app.mount('#app')
+    // }
 })
 
 app.mount('#app')
-
-import './keycloak'
