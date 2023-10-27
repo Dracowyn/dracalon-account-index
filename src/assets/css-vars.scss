@@ -1,0 +1,4 @@
+//解决导致导航栏hover变黑的问题
+.el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+	background-color: var(--el-color-primary-light-9) !important;
+}
