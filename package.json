@@ -1,7 +1,7 @@
 {
   "name": "dracalon-account-index",
-  "description": "翼爪星门首页项目",
-  "version": "0.1.0",
+  "description": "Dracalon翼爪龙联统一身份认证系统翼爪星门的首页项目",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "vite",
