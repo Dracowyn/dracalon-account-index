@@ -33,7 +33,9 @@ export default defineConfig({
                 }),
             ],
         }),
+        // 打包时进行gz压缩
         viteCompression(),
+        // 打包分析
         visualizer({
             emitFile: false,
             file: "stats.html",
@@ -66,6 +68,7 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
     },
+    // 打包配置信息
     build: {
         outDir: 'dist',
         assetsDir: 'resources',

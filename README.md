@@ -1,6 +1,6 @@
 # dracalon-account-index
 
-翼爪星门项目的首页，采用Vue3 + vite + Element Plus
+翼爪星门项目的首页，采用Vue3 + vite + Element Plus开发
 
 ## Recommended IDE Setup
 

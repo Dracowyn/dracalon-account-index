@@ -1,5 +1,6 @@
 {
   "name": "dracalon-account-index",
+  "description": "翼爪星门首页项目",
   "version": "0.1.0",
   "private": true,
   "scripts": {
