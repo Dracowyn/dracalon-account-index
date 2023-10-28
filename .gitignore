@@ -13,6 +13,9 @@ dist
 dist-ssr
 coverage
 *.local
+pnpm-lock.yaml
+stats.html
+.env.production
 
 /cypress/videos/
 /cypress/screenshots/
