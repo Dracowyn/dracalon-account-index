@@ -6,6 +6,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
 import IconsResolver from 'unplugin-icons/resolver'
+import visualizer from "rollup-plugin-visualizer";
+import viteCompression from 'vite-plugin-compression';
 // import importToCDN from 'vite-plugin-cdn-import'
 
 // https://vitejs.dev/config/
@@ -30,6 +32,12 @@ export default defineConfig({
                     enabledCollections: ['ep'],
                 }),
             ],
+        }),
+        viteCompression(),
+        visualizer({
+            emitFile: false,
+            file: "stats.html",
+            open: false
         }),
         // 打包优化，使用CDN
         // importToCDN({
@@ -57,5 +65,20 @@ export default defineConfig({
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
-    }
+    },
+    build: {
+        outDir: 'dist',
+        assetsDir: 'resources',
+        minify: 'esbuild',
+        sourcemap: false,
+        // terserOptions: {
+        //     compress: {
+        //         drop_console: true, // 生产环境去掉控制台 console
+        //         drop_debugger: true, // 生产环境去掉控制台 debugger 默认就是true
+        //         dead_code: true, // 删除无法访问的代码 默认就是true
+        //     },
+        // },
+    },
 })
+
+

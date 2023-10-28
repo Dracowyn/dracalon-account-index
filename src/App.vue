@@ -59,6 +59,7 @@ export default defineComponent({
       text: "Loading",
       background: "rgba(0, 0, 0, 0.7)",
     })
+    // 如果超时了就重置下全屏加载
     this.timeoutId = setTimeout(() => {
       this.loadingInstance.close()
       this.loadingInstance = ElLoading.service({
@@ -76,8 +77,15 @@ export default defineComponent({
         this.hideLoading()
       }
     })
+
+    // 避免因为一些刷新的情况导致全屏加载再次被开启
+    if (this.$keycloak.ready) {
+      clearTimeout(this.timeoutId);
+      this.hideLoading()
+    }
   },
   methods: {
+    // 关闭全屏加载
     hideLoading() {
       if (this.loadingInstance) {
         this.loadingInstance.close();
