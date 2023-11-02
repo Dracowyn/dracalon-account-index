@@ -4,7 +4,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 // 暗黑模式
 import 'element-plus/theme-chalk/dark/css-vars.css'
-import './assets/css-vars.scss'
+import './assets/vars.scss'
 
 const app = createApp(App)
 

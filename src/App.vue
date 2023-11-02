@@ -2,11 +2,9 @@
 import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
 import Hero from "@/components/Hero.vue";
-// import {Postcard, StarFilled} from "@element-plus/icons-vue";
-// import IconFeature1 from "@/components/icons/IconFeature1.vue";
-//
-// import zhCn from 'element-plus/lib/locale/lang/zh-cn';
-// const locale = zhCn;
+
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 </script>
 
 <template>
@@ -52,12 +50,17 @@ export default defineComponent({
       timeoutId: null,
     };
   },
+  created() {
+    NProgress.start()
+  },
   mounted() {
     // 全屏加载
     this.loadingInstance = ElLoading.service({
       lock: true,
-      text: "Loading",
-      background: "rgba(0, 0, 0, 0.7)",
+      spinner: 'none',
+      // text: "Loading",
+      // 改进为透明遮罩
+      background: "rgba(0, 0, 0, 0)",
     })
     // 如果超时了就重置下全屏加载
     this.timeoutId = setTimeout(() => {
@@ -66,8 +69,9 @@ export default defineComponent({
         lock: true,
         text: "An error occurred while connecting to the Dracalon Stargate. Please refresh and try again.",
         spinner: 'el-icon-warning',
-        background: "rgba(0, 0, 0, 0.7)",
+        background: "rgba(0, 0, 0, 0.5)",
       })
+      NProgress.done()
     }, 10000);
 
     // 监听 this.$keycloak.ready 的变化
@@ -89,6 +93,7 @@ export default defineComponent({
     hideLoading() {
       if (this.loadingInstance) {
         this.loadingInstance.close();
+        NProgress.done()
       }
     },
   },
