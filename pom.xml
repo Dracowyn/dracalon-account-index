@@ -47,7 +47,7 @@
                             <goal>pnpm</goal>
                         </goals>
                         <configuration>
-                            <arguments>install --frozen-lockfile --ignore-scripts</arguments>
+                            <arguments>install</arguments>
                         </configuration>
                     </execution>
                     <execution>
