@@ -2,3 +2,8 @@
 .el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
 	background-color: var(--el-color-primary-light-9) !important;
 }
+
+.el-loading-spinner .el-loading-text {
+	color: white;
+	font-size: 1rem;
+}

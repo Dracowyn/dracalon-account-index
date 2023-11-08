@@ -86,11 +86,11 @@
                     <replacements>
                         <replacement>
                             <token>src="/</token>
-                            <value>src="${resourceUrl}/</value>
+                            <value>src="${resourcesPath}/</value>
                         </replacement>
                         <replacement>
                             <token>href="/</token>
-                            <value>href="${resourceUrl}/</value>
+                            <value>href="${resourcesPath}/</value>
                         </replacement>
                     </replacements>
                 </configuration>
