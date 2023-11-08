@@ -7,7 +7,7 @@ import Components from 'unplugin-vue-components/vite'
 import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
 import IconsResolver from 'unplugin-icons/resolver'
 import visualizer from "rollup-plugin-visualizer";
-import viteCompression from 'vite-plugin-compression';
+// import viteCompression from 'vite-plugin-compression';
 // import importToCDN from 'vite-plugin-cdn-import'
 
 // https://vitejs.dev/config/
@@ -34,7 +34,7 @@ export default defineConfig({
             ],
         }),
         // 打包时进行gz压缩
-        viteCompression(),
+        // viteCompression(),
         // 打包分析
         visualizer({
             emitFile: false,
@@ -67,20 +67,6 @@ export default defineConfig({
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
-    },
-    // 打包配置信息
-    build: {
-        outDir: 'dist',
-        assetsDir: 'resources',
-        minify: 'esbuild',
-        sourcemap: false,
-        // terserOptions: {
-        //     compress: {
-        //         drop_console: true, // 生产环境去掉控制台 console
-        //         drop_debugger: true, // 生产环境去掉控制台 debugger 默认就是true
-        //         dead_code: true, // 删除无法访问的代码 默认就是true
-        //     },
-        // },
     },
 })
 

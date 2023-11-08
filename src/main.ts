@@ -1,6 +1,5 @@
 import './assets/main.scss'
 import { createApp } from 'vue'
-// @ts-ignore
 import App from './App.vue'
 // 暗黑模式
 import 'element-plus/theme-chalk/dark/css-vars.css'

@@ -16,6 +16,8 @@ coverage
 pnpm-lock.yaml
 stats.html
 .env.production
+node/
+target/
 
 /cypress/videos/
 /cypress/screenshots/

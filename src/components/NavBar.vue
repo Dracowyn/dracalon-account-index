@@ -83,9 +83,6 @@ const changeLang = (val) => {
           <el-menu-item index="0"><a href="https://account.dracalon.com/realms/dracalon/account">{{
               $t("message.login")
             }}</a></el-menu-item>
-          <!--          <el-menu-item index="0"><a-->
-          <!--              href="https://account.dracalon.com/realms/dracalon/account">{{ $t("message.register") }}</a>-->
-          <!--          </el-menu-item>-->
         </el-sub-menu>
       </el-menu>
       <el-dropdown>
