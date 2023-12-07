@@ -17,7 +17,8 @@ import IconLogo from "@/components/icons/IconLogo.vue"
             </div>
             <div class="col-gap" v-else>
               <el-link @click="$keycloak.login" :underline="false" :disabled="kcLoading">
-                <el-button size="large" type="primary" id="loginButton" :loading="kcLoading">{{ $t("message.login") }}</el-button>
+                <el-button size="large" type="primary" id="loginButton" :loading="kcLoading">{{ $t("message.login")
+                }}</el-button>
               </el-link>
               <el-link href="https://account.dracalon.com/realms/dracalon/account" :underline="false">
                 <el-button size="large" type="success">{{ $t("message.accountConsole") }}</el-button>
@@ -33,7 +34,7 @@ import IconLogo from "@/components/icons/IconLogo.vue"
         </div>
       </el-container>
       <el-aside class="logo">
-        <IconLogo/>
+        <IconLogo />
       </el-aside>
     </el-container>
 
@@ -51,7 +52,7 @@ import IconLogo from "@/components/icons/IconLogo.vue"
     max-width: 1280px;
     grid-template-columns: repeat(12, minmax(0, 1fr));
 
-    & > .el-container {
+    &>.el-container {
       flex: unset;
     }
 
@@ -109,7 +110,7 @@ import IconLogo from "@/components/icons/IconLogo.vue"
 @media screen and (max-width: 768px) {
   .hero-container {
     .hero-wrapper {
-      grid-template-columns:unset;
+      grid-template-columns: unset;
 
       .logo {
         display: none;
@@ -146,7 +147,7 @@ import IconLogo from "@/components/icons/IconLogo.vue"
 //     this.keycloakLoading = !this.$keycloak && !this.$keycloak.ready
 //   }
 // });
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {

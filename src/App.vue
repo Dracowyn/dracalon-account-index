@@ -10,10 +10,10 @@ import 'nprogress/nprogress.css'
 <template>
   <el-config-provider>
     <!--导航栏-->
-    <NavBar/>
+    <NavBar />
     <el-main>
       <!--第一个内容-->
-      <Hero/>
+      <Hero />
     </el-main>
     <!--    <el-main class="bg-gray">-->
     <!--      <div class="grid-cols-2">-->
@@ -35,13 +35,13 @@ import 'nprogress/nprogress.css'
     <!--      </div>-->
     <!--    </el-main>-->
 
-    <Footer/>
+    <Footer />
   </el-config-provider>
 </template>
 
 <script>
 
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   data() {
@@ -143,5 +143,4 @@ export default defineComponent({
 //
 //  }
 //}
-
 </style>

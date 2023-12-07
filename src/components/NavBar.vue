@@ -1,7 +1,7 @@
 <script setup>
-import {ref} from 'vue'
-import {ArrowDown, Operation} from "@element-plus/icons-vue";
-import {useI18n} from "vue-i18n";
+import { ref } from 'vue'
+import { ArrowDown, Operation } from "@element-plus/icons-vue";
+import { useI18n } from "vue-i18n";
 import IconLanguage from "@/components/icons/IconLanguage.vue";
 import IconDark from "@/components/icons/IconDark.vue";
 import IconLight from "@/components/icons/IconLight.vue";
@@ -31,7 +31,7 @@ const toggleDark = () => {
 
 
 // i18n国际化
-const {locale} = useI18n();
+const { locale } = useI18n();
 const changeLang = (val) => {
   locale.value = val;
   localStorage.setItem("lang", val);
@@ -42,21 +42,15 @@ const changeLang = (val) => {
 <template>
   <el-header>
     <el-container class="header-container">
-      <el-menu
-          mode="horizontal"
-          :ellipsis="false"
-          background-color="none"
-          text-color="var(--color-text)"
-          router
-          :default-active="activeIndex"
-      >
+      <el-menu mode="horizontal" :ellipsis="false" background-color="none" text-color="var(--color-text)" router
+        :default-active="activeIndex">
         <el-menu-item index="0">
           <!--          <img-->
           <!--              style="height: 75%"-->
           <!--              src="https://static.dragepic.com/images/common-logo-blue.svg"-->
           <!--              alt="Logo"-->
           <!--          />-->
-          <IconLogo class="logo"/>
+          <IconLogo class="logo" />
           <span>{{ $t("message.siteName") }}</span>
         </el-menu-item>
         <el-menu-item index="index"><a href="https://www.dracalon.com">{{ $t("message.mainSite") }}</a></el-menu-item>
@@ -66,11 +60,11 @@ const changeLang = (val) => {
         </el-menu-item>
         <el-menu-item index="account"><a href="https://account.dracalon.com/">{{ $t("message.stargate") }}</a>
         </el-menu-item>
-        <div class="flex-grow"/>
+        <div class="flex-grow" />
         <el-sub-menu index="0">
           <template #title>
             <el-icon>
-              <Operation/>
+              <Operation />
             </el-icon>
           </template>
           <el-menu-item index="0"><a href="https://www.dracalon.com">{{ $t("message.mainSite") }}</a></el-menu-item>
@@ -81,17 +75,17 @@ const changeLang = (val) => {
           <el-menu-item index="0"><a href="https://account.dracalon.com/">{{ $t("message.stargate") }}</a>
           </el-menu-item>
           <el-menu-item index="0"><a href="https://account.dracalon.com/realms/dracalon/account">{{
-              $t("message.login")
-            }}</a></el-menu-item>
+            $t("message.login")
+          }}</a></el-menu-item>
         </el-sub-menu>
       </el-menu>
       <el-dropdown>
-    <span class="el-dropdown-link">
-      <IconLanguage/>
-      <el-icon class="el-icon--right">
-        <arrow-down/>
-      </el-icon>
-    </span>
+        <span class="el-dropdown-link">
+          <IconLanguage />
+          <el-icon class="el-icon--right">
+            <arrow-down />
+          </el-icon>
+        </span>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item @click="changeLang('zh-CN')">中文</el-dropdown-item>
@@ -108,10 +102,10 @@ const changeLang = (val) => {
 
       <el-button text class="switch" :class="isDark ? 'isDark-switch' : 'noDark-switch'" @click="toggleDark">
         <el-icon v-if="isDark">
-          <IconLight/>
+          <IconLight />
         </el-icon>
         <el-icon v-else>
-          <IconDark/>
+          <IconDark />
         </el-icon>
       </el-button>
       <div>
@@ -128,7 +122,8 @@ const changeLang = (val) => {
             {{ $t("message.logout") }}
           </el-button>
         </el-container>
-        <el-button type="primary" @click="$keycloak.login" :loading="kcLoading" v-else>{{ $t("message.login") }}</el-button>
+        <el-button type="primary" @click="$keycloak.login" :loading="kcLoading" v-else>{{ $t("message.login")
+        }}</el-button>
       </div>
     </el-container>
   </el-header>
@@ -162,6 +157,7 @@ $header-height: 60px;
     //.logo {
     //  display: flex;
     align-items: center;
+
     //}
     .el-menu-item {
       span {
@@ -209,7 +205,8 @@ $header-height: 60px;
         display: none;
       }
 
-      .el-menu-item:nth-child(1), .el-sub-menu {
+      .el-menu-item:nth-child(1),
+      .el-sub-menu {
         display: flex;
       }
 
@@ -219,11 +216,10 @@ $header-height: 60px;
     }
   }
 }
-
 </style>
 
 <script>
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
