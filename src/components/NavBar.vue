@@ -128,7 +128,7 @@ const changeLang = (val) => {
             {{ $t("message.logout") }}
           </el-button>
         </el-container>
-        <el-button type="primary" @click="$keycloak.login" v-else>{{ $t("message.login") }}</el-button>
+        <el-button type="primary" @click="$keycloak.login" :loading="kcLoading" v-else>{{ $t("message.login") }}</el-button>
       </div>
     </el-container>
   </el-header>
@@ -223,4 +223,23 @@ $header-height: 60px;
 </style>
 
 <script>
+import {defineComponent} from 'vue'
+export default defineComponent({
+  data() {
+    return {
+      kcLoading: true,
+    };
+  },
+  mounted() {
+    this.$watch("$keycloak.ready", (ready) => {
+      if (ready) {
+        this.kcLoading = false;
+      }
+    })
+
+    if (this.$keycloak.ready) {
+      this.kcLoading = false;
+    }
+  },
+})
 </script>

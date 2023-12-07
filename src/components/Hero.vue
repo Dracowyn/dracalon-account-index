@@ -16,8 +16,8 @@ import IconLogo from "@/components/icons/IconLogo.vue"
               </el-link>
             </div>
             <div class="col-gap" v-else>
-              <el-link @click="$keycloak.login" :underline="false">
-                <el-button size="large" type="primary" id="loginButton">{{ $t("message.login") }}</el-button>
+              <el-link @click="$keycloak.login" :underline="false" :disabled="kcLoading">
+                <el-button size="large" type="primary" id="loginButton" :loading="kcLoading">{{ $t("message.login") }}</el-button>
               </el-link>
               <el-link href="https://account.dracalon.com/realms/dracalon/account" :underline="false">
                 <el-button size="large" type="success">{{ $t("message.accountConsole") }}</el-button>
@@ -146,4 +146,23 @@ import IconLogo from "@/components/icons/IconLogo.vue"
 //     this.keycloakLoading = !this.$keycloak && !this.$keycloak.ready
 //   }
 // });
+import {defineComponent} from 'vue'
+export default defineComponent({
+  data() {
+    return {
+      kcLoading: true,
+    };
+  },
+  mounted() {
+    this.$watch("$keycloak.ready", (ready) => {
+      if (ready) {
+        this.kcLoading = false;
+      }
+    })
+
+    if (this.$keycloak.ready) {
+      this.kcLoading = false;
+    }
+  },
+})
 </script>

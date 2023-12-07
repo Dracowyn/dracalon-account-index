@@ -55,16 +55,16 @@ export default defineComponent({
   },
   mounted() {
     // 全屏加载
-    this.loadingInstance = ElLoading.service({
-      lock: true,
-      spinner: 'none',
-      // text: "Loading",
-      // 改进为透明遮罩
-      background: "rgba(0, 0, 0, 0)",
-    })
+    // this.loadingInstance = ElLoading.service({
+    //   lock: true,
+    //   spinner: 'none',
+    //   // text: "Loading",
+    //   // 改进为透明遮罩
+    //   background: "rgba(0, 0, 0, 0)",
+    // })
     // 如果超时了就重置下全屏加载
     this.timeoutId = setTimeout(() => {
-      this.loadingInstance.close()
+      // this.loadingInstance.close()
       this.loadingInstance = ElLoading.service({
         lock: true,
         text: "An error occurred while connecting to the Dracalon Stargate. Please refresh and try again.",
@@ -93,8 +93,8 @@ export default defineComponent({
     hideLoading() {
       if (this.loadingInstance) {
         this.loadingInstance.close();
-        NProgress.done()
       }
+      NProgress.done()
     },
   },
 })
