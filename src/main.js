@@ -13,12 +13,13 @@ app.use(i18n)
 
 import VueKeycloakJs from '@dsb-norge/vue-keycloak-js'
 // import Keycloak from "keycloak-js";
-// @ts-ignore
+
 const VITE_KEYCLOAK_SERVER = import.meta.env.VITE_KEYCLOAK_SERVER
-// @ts-ignore
+
 const VITE_KEYCLOAK_REALM = import.meta.env.VITE_KEYCLOAK_REALM
-// @ts-ignore
+
 const VITE_KEYCLOAK_CLIENT_ID = import.meta.env.VITE_KEYCLOAK_CLIENT_ID
+
 app.use(VueKeycloakJs, {
     init: {
         onLoad: 'check-sso'

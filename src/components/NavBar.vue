@@ -53,12 +53,20 @@ const changeLang = (val) => {
           <IconLogo class="logo" />
           <span>{{ $t("message.siteName") }}</span>
         </el-menu-item>
-        <el-menu-item index="index"><a href="https://www.dracalon.com">{{ $t("message.mainSite") }}</a></el-menu-item>
-        <el-menu-item index="bbs"><a href="https://bbs.dracalon.com/">{{ $t("message.community") }}</a></el-menu-item>
-        <el-menu-item index="wiki"><a href="https://www.dra.wiki/">{{ $t("message.wiki") }}</a></el-menu-item>
-        <el-menu-item index="img"><a href="https://img.dracalon.com/">{{ $t("message.imageHosting") }}</a>
+        <el-menu-item index="index">
+          <a href="https://www.dracalon.com" target="_blank">{{ $t("message.mainSite") }}</a>
         </el-menu-item>
-        <el-menu-item index="account"><a href="https://account.dracalon.com/">{{ $t("message.stargate") }}</a>
+        <el-menu-item index="bbs">
+          <a href="https://bbs.dracalon.com/" target="_blank">{{ $t("message.community") }}</a>
+        </el-menu-item>
+        <el-menu-item index="wiki">
+          <a href="https://www.dra.wiki/" target="_blank">{{ $t("message.wiki") }}</a>
+        </el-menu-item>
+        <el-menu-item index="img">
+          <a href="https://img.dracalon.com/" target="_blank">{{ $t("message.imageHosting") }}</a>
+        </el-menu-item>
+        <el-menu-item index="account">
+          <a href="https://account.dracalon.com/">{{ $t("message.stargate") }}</a>
         </el-menu-item>
         <div class="flex-grow" />
         <el-sub-menu index="0">
@@ -67,16 +75,24 @@ const changeLang = (val) => {
               <Operation />
             </el-icon>
           </template>
-          <el-menu-item index="0"><a href="https://www.dracalon.com">{{ $t("message.mainSite") }}</a></el-menu-item>
-          <el-menu-item index="0"><a href="https://bbs.dracalon.com/">{{ $t("message.community") }}</a></el-menu-item>
-          <el-menu-item index="0"><a href="https://www.dra.wiki/">{{ $t("message.wiki") }}</a></el-menu-item>
-          <el-menu-item index="0"><a href="https://img.dracalon.com/">{{ $t("message.imageHosting") }}</a>
+          <el-menu-item index="0">
+            <a href="https://www.dracalon.com" target="_blank">{{ $t("message.mainSite") }}</a>
           </el-menu-item>
-          <el-menu-item index="0"><a href="https://account.dracalon.com/">{{ $t("message.stargate") }}</a>
+          <el-menu-item index="0">
+            <a href="https://bbs.dracalon.com/" target="_blank">{{ $t("message.community") }}</a>
           </el-menu-item>
-          <el-menu-item index="0"><a href="https://account.dracalon.com/realms/dracalon/account">{{
-            $t("message.login")
-          }}</a></el-menu-item>
+          <el-menu-item index="0">
+            <a href="https://www.dra.wiki/" target="_blank">{{ $t("message.wiki") }}</a>
+          </el-menu-item>
+          <el-menu-item index="0">
+            <a href="https://img.dracalon.com/" target="_blank">{{ $t("message.imageHosting") }}</a>
+          </el-menu-item>
+          <el-menu-item index="0">
+            <a href="https://account.dracalon.com/">{{ $t("message.stargate") }}</a>
+          </el-menu-item>
+          <el-menu-item index="0">
+            <a href="https://account.dracalon.com/realms/dracalon/account" target="_blank">{{ $t("message.login") }}</a>
+          </el-menu-item>
         </el-sub-menu>
       </el-menu>
       <el-dropdown>
@@ -122,8 +138,9 @@ const changeLang = (val) => {
             {{ $t("message.logout") }}
           </el-button>
         </el-container>
-        <el-button type="primary" @click="$keycloak.login" :loading="kcLoading" v-else>{{ $t("message.login")
-        }}</el-button>
+        <el-button type="primary" @click="$keycloak.login" :loading="kcLoading" :disabled="kcLoading" v-else>
+          {{ $t("message.login") }}
+        </el-button>
       </div>
     </el-container>
   </el-header>
