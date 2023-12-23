@@ -2,9 +2,6 @@
 import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
 import Hero from "@/components/Hero.vue";
-
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
 </script>
 
 <template>
@@ -40,8 +37,9 @@ import 'nprogress/nprogress.css'
 </template>
 
 <script>
-
 import {defineComponent} from 'vue'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 export default defineComponent({
 	data() {

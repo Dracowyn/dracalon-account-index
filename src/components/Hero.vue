@@ -60,6 +60,10 @@ import IconLogo from "@/components/icons/IconLogo.vue"
 </template>
 
 <style scoped lang="scss">
+:global(#app) {
+	height: 100vh;
+}
+
 .hero-container {
 	margin: auto;
 	align-items: center;
