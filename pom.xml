@@ -12,8 +12,8 @@
     <version>0.1.2</version>
 
     <properties>
-        <node.version>v18.18.2</node.version>
-        <pnpm.version>8.10.2</pnpm.version>
+        <node.version>v18.19.0</node.version>
+        <pnpm.version>8.12.1</pnpm.version>
     </properties>
 
 
