@@ -31,6 +31,7 @@ import Hero from "@/components/Hero.vue";
 		<!--        </div>-->
 		<!--      </div>-->
 		<!--    </el-main>-->
+		<!--也许后边要用上Vue-route-->
 
 		<Footer/>
 	</el-config-provider>
@@ -62,19 +63,22 @@ export default defineComponent({
 		// })
 		// 如果超时了就重置下全屏加载
 		this.timeoutId = setTimeout(() => {
+			console.error("Keycloak init timeout")
 			// this.loadingInstance.close()
 			this.loadingInstance = ElLoading.service({
 				lock: true,
 				text: "An error occurred while connecting to the Dracalon Stargate. Please refresh and try again.",
 				spinner: 'el-icon-warning',
 				background: "rgba(0, 0, 0, 0.5)",
-			})
+			});
 			NProgress.done()
-		}, 10000);
+		}, 10000)
 
+		console.log("Keycloak init")
 		// 监听 this.$keycloak.ready 的变化
 		this.$watch("$keycloak.ready", (ready) => {
 			if (ready) {
+				console.log("Keycloak ready:",ready)
 				clearTimeout(this.timeoutId);
 				this.hideLoading()
 			}
