@@ -1,42 +1,59 @@
 <script setup>
-import {ref} from 'vue'
-import {ArrowDown, Operation} from "@element-plus/icons-vue";
-import {useI18n} from "vue-i18n";
-import IconLanguage from "@/components/icons/IconLanguage.vue";
-import IconDark from "@/components/icons/IconDark.vue";
-import IconLight from "@/components/icons/IconLight.vue";
-import IconLogo from "@/components/icons/IconLogo.vue";
+import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-const activeIndex = ref('account')
+// 获取浏览器是否为暗黑模式
+const isDarkModePreferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-// 暗黑模式
-const isDark = ref(localStorage.getItem('darkMode') === 'true') || ref(false)
-const html = document.querySelector('html')
-if (isDark.value) {
-	html.classList.add("dark");
-} else {
-	html.classList.remove("dark");
-}
-const toggleDark = () => {
-	isDark.value = !isDark.value
-	localStorage.setItem('darkMode', isDark.value.toString())
-	if (html) {
-		if (isDark.value) {
-			html.classList.add("dark");
-		} else {
-			html.classList.remove("dark");
-		}
-	}
-}
+// 从localStorage中获取暗黑模式设置，如果没有设置，则使用浏览器默认值
+const localDarkMode = localStorage.getItem('darkMode');
+const isDark = ref(localDarkMode ? localDarkMode === 'true' : isDarkModePreferred);
 
-
-// i18n国际化
-const {locale} = useI18n();
-const changeLang = (val) => {
-	locale.value = val;
-	localStorage.setItem("lang", val);
+// 初始化暗黑模式
+const initDarkMode = () => {
+	const html = document.querySelector('html');
+	html.classList.toggle('dark', isDark.value);
 };
 
+// 切换暗黑模式
+const toggleDark = () => {
+	isDark.value = !isDark.value;
+	localStorage.setItem('darkMode', isDark.value.toString());
+	// 更新页面样式
+	updatePageStyle();
+};
+
+// 更新页面样式
+const updatePageStyle = () => {
+	const html = document.querySelector('html');
+	html.classList.toggle('dark', isDark.value);
+};
+
+// i18n国际化
+const { locale } = useI18n();
+
+// 初始化语言
+const initLanguage = () => {
+	const localLang = localStorage.getItem('lang');
+	if (localLang) {
+		locale.value = localLang;
+	}
+};
+
+// 改变语言
+const changeLang = (val) => {
+	locale.value = val;
+	localStorage.setItem('lang', val);
+};
+
+// 默认activeIndex
+const activeIndex = ref('account');
+
+// 在组件挂载后执行初始化操作
+onMounted(() => {
+	initDarkMode();
+	initLanguage();
+});
 </script>
 
 <template>
@@ -151,7 +168,7 @@ const changeLang = (val) => {
 					type="primary"
 					@click="$keycloak.login"
 					:loading="kcLoading"
-					:disabled="kcLoading"
+					:disabled="kcButtonDisabled"
 					v-else>
 					{{ $t("message.login") }}
 				</el-button>
