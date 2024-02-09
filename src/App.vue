@@ -72,7 +72,7 @@ export default defineComponent({
 				duration: 0,
 			})
 			NProgress.done()
-		}, 10000)
+		}, 5000)
 
 		console.log("Keycloak init")
 		// 监听 this.$keycloak.ready 的变化

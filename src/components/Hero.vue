@@ -28,7 +28,7 @@ import IconLogo from "@/components/icons/IconLogo.vue"
 									size="large" type="primary"
 									id="loginButton"
 									:loading="kcLoading"
-									:disabled="kcLoading">
+									:disabled="kcButtonDisabled">
 									{{ $t("message.login") }}
 								</el-button>
 							</el-link>
