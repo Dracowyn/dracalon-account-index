@@ -157,36 +157,10 @@ import IconLogo from "@/components/icons/IconLogo.vue"
 </style>
 
 <script>
-// import {defineComponent} from 'vue'
-// export default defineComponent({
-//   data() {
-//     return {
-//       keycloakLoading: true,
-//     }
-//   },
-//   mounted () {
-//     // console.log(this.$keycloak && this.$keycloak.ready)
-//     this.keycloakLoading = !this.$keycloak && !this.$keycloak.ready
-//   }
-// });
 import {defineComponent} from 'vue'
+import useKeycloak from "@/services/useKeycloak";
 
 export default defineComponent({
-	data() {
-		return {
-			kcLoading: true,
-		};
-	},
-	mounted() {
-		this.$watch("$keycloak.ready", (ready) => {
-			if (ready) {
-				this.kcLoading = false;
-			}
-		})
-
-		if (this.$keycloak.ready) {
-			this.kcLoading = false;
-		}
-	},
+	mixins: [useKeycloak],
 })
 </script>

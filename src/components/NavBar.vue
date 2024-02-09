@@ -251,23 +251,9 @@ $header-height: 60px;
 
 <script>
 import {defineComponent} from 'vue'
+import useKeycloak from "@/services/useKeycloak";
 
 export default defineComponent({
-	data() {
-		return {
-			kcLoading: true,
-		};
-	},
-	mounted() {
-		this.$watch("$keycloak.ready", (ready) => {
-			if (ready) {
-				this.kcLoading = false;
-			}
-		})
-
-		if (this.$keycloak.ready) {
-			this.kcLoading = false;
-		}
-	},
+	mixins: [useKeycloak],
 })
 </script>
