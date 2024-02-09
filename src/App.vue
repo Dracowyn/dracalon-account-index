@@ -65,12 +65,12 @@ export default defineComponent({
 		this.timeoutId = setTimeout(() => {
 			console.error("Keycloak init timeout")
 			// this.loadingInstance.close()
-			this.loadingInstance = ElLoading.service({
-				lock: true,
-				text: "An error occurred while connecting to the Dracalon Stargate. Please refresh and try again.",
-				spinner: 'el-icon-warning',
-				background: "rgba(0, 0, 0, 0.5)",
-			});
+			this.loadingInstance = ElNotification({
+				title: 'Error',
+				message: 'Backend service init timeout, please refresh the page.',
+				type: 'error',
+				duration: 0,
+			})
 			NProgress.done()
 		}, 10000)
 
@@ -78,7 +78,7 @@ export default defineComponent({
 		// 监听 this.$keycloak.ready 的变化
 		this.$watch("$keycloak.ready", (ready) => {
 			if (ready) {
-				console.log("Keycloak ready:",ready)
+				console.log("Keycloak ready:", ready)
 				clearTimeout(this.timeoutId);
 				this.hideLoading()
 			}
@@ -93,9 +93,9 @@ export default defineComponent({
 	methods: {
 		// 关闭全屏加载
 		hideLoading() {
-			if (this.loadingInstance) {
-				this.loadingInstance.close();
-			}
+			// if (this.loadingInstance) {
+			// 	this.loadingInstance.close();
+			// }
 			NProgress.done()
 		},
 	},
