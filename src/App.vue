@@ -97,6 +97,15 @@ export default defineComponent({
 			// 	this.loadingInstance.close();
 			// }
 			NProgress.done()
+
+			// 清除#iss，避免刷新页面时再次跳转到登录页
+			let url = window.location.href
+			let index = url.indexOf('#iss')
+			if (index !== -1) {
+				console.log("Clear #iss")
+				url = url.substring(0, index)
+				window.history.replaceState({}, document.title, url)
+			}
 		},
 	},
 })
