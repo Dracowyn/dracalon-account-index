@@ -9,11 +9,11 @@
     <name>Keycloak Welcome Page</name>
     <description>The user inferface to manage an account on the Keycloak server.</description>
     <groupId>org.keycloak</groupId>
-    <version>0.1.3</version>
+    <version>0.1.4</version>
 
     <properties>
-        <node.version>v18.19.0</node.version>
-        <pnpm.version>8.15.1</pnpm.version>
+        <node.version>v18.19.1</node.version>
+        <pnpm.version>8.15.3</pnpm.version>
     </properties>
 
 
